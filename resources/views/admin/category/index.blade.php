@@ -30,7 +30,7 @@
                 <th>Category Name</th>
                 <th>Category Description</th>
                 <th>Image</th>
-                <th>Action</th>
+                <th class="text-center">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -40,8 +40,24 @@
                     <td><a href="#">{{ $key + 1 }}</a></td>
                     <td>{{ $category->name }}</td>
                     <td>{{ substr($category->description, 0, 30) }}...</td>
-                    <td><img src="{{ asset('images/' . $category->image) }}" :alt="$category->image" width="100"></td>
-                    <td><a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-sm btn-primary">Edit</a></td>
+                    <td><img src="{{ Storage::url($category->image) }}" alt="{{ $category->image }}" width="100"></td>
+                    <td>
+                      <div class="row">
+                        <div class="col"> <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-sm btn-outline-primary w-100 mb-1"><i class="far fa-edit"></i></a>
+                        </div>
+                        <div class="col">
+                          <form action="{{ route('admin.category.destroy', $category->id) }}" method="POST" onsubmit="return confirmDelete()">
+                            @csrf
+                            @method("DELETE")
+                            <button type="submit" class="btn btn-outline-danger btn-sm w-100 mb-1"><i class="far fa-trash-alt"></i></button>
+
+                          </form>
+                        </div>
+                      </div>
+
+
+                    </td>
+
                   </tr>
                 @endforeach
               @else
@@ -60,5 +76,9 @@
   </div>
 
 
-
+  <script>
+        confirmDelete = ()=>{
+            return confirm('Are you sure you want to delete', 'Delete Category');
+        }
+  </script>
 @endsection
