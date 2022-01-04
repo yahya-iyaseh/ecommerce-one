@@ -1,5 +1,5 @@
-    <!-- Sidebar -->
-    <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+
+   <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
           <img src="{{ asset('adminTemplate/img/logo/logo2.png') }}">
@@ -17,7 +17,8 @@
         Features
       </div>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap" aria-expanded="true" aria-controls="collapseBootstrap">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
+          aria-expanded="true" aria-controls="collapseBootstrap">
           <i class="far fa-fw fa-window-maximize"></i>
           <span>Bootstrap UI</span>
         </a>
@@ -34,7 +35,8 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true" aria-controls="collapseForm">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
+          aria-controls="collapseForm">
           <i class="fab fa-fw fa-wpforms"></i>
           <span>Forms</span>
         </a>
@@ -47,7 +49,8 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true" aria-controls="collapseTable">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
+          aria-controls="collapseTable">
           <i class="fas fa-fw fa-table"></i>
           <span>Tables</span>
         </a>
@@ -70,7 +73,8 @@
         Examples
       </div>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true" aria-controls="collapsePage">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage" aria-expanded="true"
+          aria-controls="collapsePage">
           <i class="fas fa-fw fa-columns"></i>
           <span>Pages</span>
         </a>
@@ -93,4 +97,3 @@
       <hr class="sidebar-divider">
       <div class="version" id="version-ruangadmin"></div>
     </ul>
-    <!-- Sidebar -->

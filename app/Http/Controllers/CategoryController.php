@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class CategoryController extends Controller
 {
@@ -15,7 +16,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+
+
+        $categories  = Category::latest()->paginate(5);
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -50,7 +54,8 @@ class CategoryController extends Controller
             'image' => $imageName,
             'slug' => Str::slug($request->categoryName),
         ]);
-        return redirect()->back()->with('success', 'Category Created Successfully');
+        notify()->success('The Category was created successfully');
+        return Redirect::route('admin.category.index');
 
     }
 

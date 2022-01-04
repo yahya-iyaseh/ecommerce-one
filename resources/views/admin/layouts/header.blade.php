@@ -12,7 +12,16 @@
   <link href="{{ asset('adminTemplate/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('adminTemplate/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('adminTemplate/css/ruang-admin.min.css') }}" rel="stylesheet">
+  @notifyCss
+  <style>
+  .inset-0 {
+    z-index: 999 !important;
+}
+  </style>
+
 </head>
 
 <body id="page-top">
+        <x:notify-messages />
+@notifyJs
   <div id="wrapper">

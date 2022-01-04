@@ -5,11 +5,11 @@
 @section('content')
   <div class="container-fluid" id="container-wrapper">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-      <h1 class="h3 mb-0 text-gray-800">Form Basics</h1>
+      <h1 class="h3 mb-0 text-gray-800">Create Category</h1>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="./">Home</a></li>
-        <li class="breadcrumb-item">Forms</li>
-        <li class="breadcrumb-item active" aria-current="page">Form Basics</li>
+        <li class="breadcrumb-item">Category</li>
+        <li class="breadcrumb-item active" aria-current="page">Create Category</li>
       </ol>
     </div>
     @if(Session::has('success'))
@@ -20,7 +20,7 @@
         <!-- Form Basic -->
         <div class="card mb-4">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Form Basic</h6>
+            <h6 class="m-0 font-weight-bold text-Info">New Category</h6>
           </div>
           <div class="card-body">
             <form action="{{ route('admin.category.store') }}" method="post" enctype="multipart/form-data">
@@ -34,7 +34,7 @@
               </div>
               <div class="form-group">
                 <label for="description">Category Description</label>
-                <textarea type="text" id="description" name="description" aria-describedby="description" placeholder="Enter The category Name" class="form-control @error('description') isInvalid @enderror">{{ old('description') }}</textarea>
+                <textarea type="text" id="description" name="description" aria-describedby="description" placeholder="Enter The category Description" class="form-control @error('description') isInvalid @enderror">{{ old('description') }}</textarea>
                 @error('description')
                   <span class="invalid-feedback d-block" role="alert"><strong>{{ $message }}</strong></span>
                 @enderror

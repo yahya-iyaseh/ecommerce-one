@@ -1,7 +1,6 @@
 @include('admin\layouts\header')
 
 @include('admin\layouts\sideBar')
-
 <div id="content-wrapper" class="d-flex flex-column">
   <div id="content">
     <!-- TopBar -->

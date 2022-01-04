@@ -30,7 +30,7 @@
                 </div>
               </div>
               <div class="col-auto">
-                <i class="fas fa-calendar fa-2x text-primary"></i>
+                <i class="fas fa-calendar fa-2x text-Info"></i>
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@
       <div class="col-xl-8 col-lg-7">
         <div class="card mb-4">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Monthly Recap Report</h6>
+            <h6 class="m-0 font-weight-bold text-Info">Monthly Recap Report</h6>
             <div class="dropdown no-arrow">
               <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -126,9 +126,9 @@
       <div class="col-xl-4 col-lg-5">
         <div class="card mb-4">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Products Sold</h6>
+            <h6 class="m-0 font-weight-bold text-Info">Products Sold</h6>
             <div class="dropdown no-arrow">
-              <a class="dropdown-toggle btn btn-primary btn-sm" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="dropdown-toggle btn btn-Info btn-sm" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Month <i class="fas fa-chevron-down"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
@@ -183,7 +183,7 @@
             </div>
           </div>
           <div class="card-footer text-center">
-            <a class="m-0 small text-primary card-link" href="#">View More <i class="fas fa-chevron-right"></i></a>
+            <a class="m-0 small text-Info card-link" href="#">View More <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
       </div>
@@ -191,7 +191,7 @@
       <div class="col-xl-8 col-lg-7 mb-4">
         <div class="card">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Invoice</h6>
+            <h6 class="m-0 font-weight-bold text-Info">Invoice</h6>
             <a class="m-0 float-right btn btn-danger btn-sm" href="#">View More <i class="fas fa-chevron-right"></i></a>
           </div>
           <div class="table-responsive">
@@ -211,35 +211,35 @@
                   <td>Udin Wayang</td>
                   <td>Nasi Padang</td>
                   <td><span class="badge badge-success">Delivered</span></td>
-                  <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
+                  <td><a href="#" class="btn btn-sm btn-Info">Detail</a></td>
                 </tr>
                 <tr>
                   <td><a href="#">RA5324</a></td>
                   <td>Jaenab Bajigur</td>
                   <td>Gundam 90' Edition</td>
                   <td><span class="badge badge-warning">Shipping</span></td>
-                  <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
+                  <td><a href="#" class="btn btn-sm btn-Info">Detail</a></td>
                 </tr>
                 <tr>
                   <td><a href="#">RA8568</a></td>
                   <td>Rivat Mahesa</td>
                   <td>Oblong T-Shirt</td>
                   <td><span class="badge badge-danger">Pending</span></td>
-                  <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
+                  <td><a href="#" class="btn btn-sm btn-Info">Detail</a></td>
                 </tr>
                 <tr>
                   <td><a href="#">RA1453</a></td>
                   <td>Indri Junanda</td>
                   <td>Hat Rounded</td>
                   <td><span class="badge badge-info">Processing</span></td>
-                  <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
+                  <td><a href="#" class="btn btn-sm btn-Info">Detail</a></td>
                 </tr>
                 <tr>
                   <td><a href="#">RA1998</a></td>
                   <td>Udin Cilok</td>
                   <td>Baby Powder</td>
                   <td><span class="badge badge-success">Delivered</span></td>
-                  <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
+                  <td><a href="#" class="btn btn-sm btn-Info">Detail</a></td>
                 </tr>
               </tbody>
             </table>
@@ -250,7 +250,7 @@
       <!-- Message From Customer-->
       <div class="col-xl-4 col-lg-5 ">
         <div class="card">
-          <div class="card-header py-4 bg-primary d-flex flex-row align-items-center justify-content-between">
+          <div class="card-header py-4 bg-Info d-flex flex-row align-items-center justify-content-between">
             <h6 class="m-0 font-weight-bold text-light">Message From Customer</h6>
           </div>
           <div>
@@ -284,7 +284,7 @@
               </a>
             </div>
             <div class="card-footer text-center">
-              <a class="m-0 small text-primary card-link" href="#">View More <i class="fas fa-chevron-right"></i></a>
+              <a class="m-0 small text-Info card-link" href="#">View More <i class="fas fa-chevron-right"></i></a>
             </div>
           </div>
         </div>
@@ -294,7 +294,7 @@
 
     <div class="row">
       <div class="col-lg-12 text-center">
-        <p>Do you like this template ? you can download from <a href="https://github.com/indrijunanda/RuangAdmin" class="btn btn-primary btn-sm" target="_blank"><i class="fab fa-fw fa-github"></i>&nbsp;GitHub</a></p>
+        <p>Do you like this template ? you can download from <a href="https://github.com/indrijunanda/RuangAdmin" class="btn btn-Info btn-sm" target="_blank"><i class="fab fa-fw fa-github"></i>&nbsp;GitHub</a></p>
       </div>
     </div>
 
@@ -312,8 +312,8 @@
             <p>Are you sure you want to logout?</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-            <a href="login.html" class="btn btn-primary">Logout</a>
+            <button type="button" class="btn btn-outline-Info" data-dismiss="modal">Cancel</button>
+            <a href="login.html" class="btn btn-Info">Logout</a>
           </div>
         </div>
       </div>
