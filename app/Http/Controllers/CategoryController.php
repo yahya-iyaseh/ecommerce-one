@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
+
 class CategoryController extends Controller
 {
     /**
@@ -40,15 +41,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'categoryName' => ['required',  'max:255', 'unique:categories,name'],
-            'description' => ['required', 'max:500'],
-            'image' => ['required', 'mimes:png,bmp,jpg,jpeg'],
-        ]);
+        $this->validate($request, $this->checkValid());
 
-        $imageName = time() . '.' . $request->image->getClientOriginalExtension();
+
+        // $imageName = time() . '.' . $request->image->getClientOriginalExtension();
         // $request->image->move(public_path('images'), $imageName);
-         $imageName = $request->file('image')->store(
+        $imageName = $request->file('image')->store(
             'public/images',
         );
         Category::create([
@@ -92,19 +90,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $this->validate($request, [
-            'categoryName' => ['required',  'max:255',Rule::unique('users', 'name')->ignore($category->id),],
-            'description' => ['required', 'max:500'],
-            'image' => ['mimes:png,bmp,jpg,jpeg'],
-        ]);
-        if(isset($request->image)){
-            \Storage::delete($request->image);
-            $imageName = time() . '.' . $request->image->getClientOriginalExtension();
+        $this->validate($request, $this->checkValid($category->id, 'nullable'));
+        if (isset($request->image)) {
+            \Storage::delete($category->image);
+            // $imageName = time() . '.' . $request->image->getClientOriginalExtension();
             // $request->image->move(public_path('images'), $imageName);
             $imageName = $request->file('image')->store(
                 'public/images',
             );
-        }else{
+        } else {
             $imageName = $category->image;
         }
 
@@ -132,5 +126,13 @@ class CategoryController extends Controller
         notify()->success('The Category was Deleted successfully', 'Delete Category');
         // connectify('success','Delete Category', 'The Category was Deleted successfully');
         return Redirect::route('admin.category.index');
+    }
+    protected function checkValid($id = null, $required = 'required')
+    {
+        return [
+            'categoryName' => ['required',  'max:255', Rule::unique('users', 'name')->ignore($id),],
+            'description' => ['nullable', 'max:500'],
+            'image' => [$required, 'max:2040', 'mimes:png,bmp,jpg,jpeg'],
+        ];
     }
 }

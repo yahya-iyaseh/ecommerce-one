@@ -30,7 +30,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="categoryName">Category Name</label>
-                    <input type="text" id="categoryName" name="categoryName" aria-describedby="categoryName" placeholder="Enter The category Name" class="form-control @error('categoryName') isInvalid @enderror" value="{{ $category->name }}">
+                    <input type="text" id="categoryName" name="categoryName" aria-describedby="categoryName" placeholder="Enter The category Name" class="form-control @error('categoryName') is-invalid @enderror" value="{{ $category->name }}">
                     @error('categoryName')
                       <span class="invalid-feedback d-block" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
@@ -38,7 +38,7 @@
                   <div class="form-group">
                     <label for="description">Category Description</label>
                     <textarea type="text" id="description" name="description" aria-describedby="description" placeholder="Enter The category Description"
-                      class="form-control @error('description') isInvalid @enderror">{{ $category->description }}</textarea>
+                      class="form-control @error('description') is-invalid @enderror">{{ $category->description }}</textarea>
                     @error('description')
                       <span class="invalid-feedback d-block" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
@@ -48,7 +48,7 @@
                   <div class="form-group mt-4">
                     <div class="custom-file ">
                       <div>
-                        <input type="file" id="image" name="image" class="custom-file-input @error('image') isInvalid @enderror" value="{{ $category->image }}">
+                        <input type="file" id="image" name="image" class="custom-file-input @error('image') is-invalid @enderror" value="{{ $category->image }}">
                         <label class="custom-file-label mt-0  mt-md-2" for="image">Category Image</label>
                         @error('image')
                           <span class="invalid-feedback d-block" role="alert"><strong>{{ $message }}</strong></span>
