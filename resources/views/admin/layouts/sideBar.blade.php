@@ -19,7 +19,7 @@
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap" aria-expanded="true" aria-controls="collapseBootstrap">
 
       <span>
-        <i class="fas fa-boxes"></i>
+        <i class="fas fa-box"></i>
         Categories
       </span>
     </a>
@@ -27,10 +27,61 @@
       <div class="bg-white py-2 collapse-inner rounded">
         {{-- <h6 class="collapse-header">Bootstrap UI</h6> --}}
         <a class="collapse-item" href="{{ route('admin.category.index') }}">
-          <i class="fas fa-boxes"></i>
-          Categories
+          <i class="fas fa-box"></i> Categories
         </a>
         <a class="collapse-item" href="{{ route('admin.category.create') }}">
+          <i class="fas fa-plus"></i>
+          Create
+        </a>
+        {{-- <a class="collapse-item" href="dropdowns.html">Dropdowns</a>
+            <a class="collapse-item" href="modals.html">Modals</a>
+            <a class="collapse-item" href="popovers.html">Popovers</a>
+            <a class="collapse-item" href="progress-bar.html">Progress Bars</a> --}}
+      </div>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap3" aria-expanded="true" aria-controls="collapseBootstrap">
+
+      <span>
+        <i class="fas fa-boxes"></i>
+        Sub Categories
+      </span>
+    </a>
+    <div id="collapseBootstrap3" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        {{-- <h6 class="collapse-header">Bootstrap UI</h6> --}}
+        <a class="collapse-item" href="{{ route('admin.subCategory.index') }}">
+          <i class="fas fa-boxes"></i>
+          Sub Categories
+        </a>
+        <a class="collapse-item" href="{{ route('admin.subCategory.create') }}">
+          <i class="fas fa-plus"></i>
+          Create
+        </a>
+        {{-- <a class="collapse-item" href="dropdowns.html">Dropdowns</a>
+            <a class="collapse-item" href="modals.html">Modals</a>
+            <a class="collapse-item" href="popovers.html">Popovers</a>
+            <a class="collapse-item" href="progress-bar.html">Progress Bars</a> --}}
+      </div>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap2" aria-expanded="true" aria-controls="collapseBootstrap">
+
+      <span>
+        <i class="fas fa-box-open"></i>
+        Products
+      </span>
+    </a>
+    <div id="collapseBootstrap2" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+      <div class="bg-white py-2 collapse-inner rounded">
+        {{-- <h6 class="collapse-header">Bootstrap UI</h6> --}}
+        <a class="collapse-item" href="{{ route('admin.item.index') }}">
+          <i class="fas fa-box-open"></i>
+          Products
+        </a>
+        <a class="collapse-item" href="{{ route('admin.item.create') }}">
           <i class="fas fa-plus"></i>
           Create
         </a>

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\SubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +28,12 @@ Route::get('/index/test', function () {
 
 
 Route::resource('category', CategoryController::class, ['as' => 'admin']);
-
+Route::resource('subCategory', SubCategoryController::class, ['as' => 'admin']);
+Route::resource('item', ItemController::class, ['as' => 'admin']);
+Route::get('test', function(){
+    $h1 = "<h1>hello</h1>";
+    return view('fuck', compact('h1'));
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');;

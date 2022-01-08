@@ -12,6 +12,16 @@
 <script src="{{ asset('adminTemplate/js/ruang-admin.min.js') }}"></script>
 <script src="{{ asset('adminTemplate/vendor/chart.js/Chart.min.js') }}"></script>
 <script src="{{ asset('adminTemplate/js/demo/chart-area-demo.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#summernote').summernote();
+});
+$(document).ready(function() {
+  $('#summernote2').summernote();
+});
+</script>
+
 @notifyJs
 </body>
 
