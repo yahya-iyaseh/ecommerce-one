@@ -17,7 +17,7 @@
 
     <div class="card mb-4">
       <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-        <h6 class="m-0 font-weight-bold text-primary">DataTables with Hover</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Products</h6>
       </div>
       <div class="table-responsive p-3">
         <table class="table align-items-center table-flush table-hover" id="dataTableHover">
@@ -44,7 +44,7 @@
           <tbody>
             @foreach ($items as $key => $product)
               <tr>
-                <td><img src="{{ Storage::url($product->image) }}" alt="{{ $product->image }}" width="120"></td>
+                <td><img src="{{ $product->image_url }}" alt="{{ $product->image }}" width="120"></td>
                 <td>{{ $product->name }}</td>
                 <td>{!! Str::substr($product->description, 0, 140) !!}...</td>
                 <td>{{ $product->price }}</td>

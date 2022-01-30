@@ -12,9 +12,7 @@
         <li class="breadcrumb-item active" aria-current="page">Create Category</li>
       </ol>
     </div>
-    @if(Session::has('success'))
-        <div class="alert alert-success">{{ Session::get('success') }}</div>
-    @endif
+
     <div class="row">
       <div class="col">
         <!-- Form Basic -->
@@ -25,32 +23,8 @@
           <div class="card-body">
             <form action="{{ route('admin.category.store') }}" method="post" enctype="multipart/form-data">
               @csrf
-              <div class="form-group">
-                <label for="categoryName">Category Name</label>
-                <input type="text" id="categoryName" name="categoryName" aria-describedby="categoryName" placeholder="Enter The category Name" class="form-control @error('categoryName') is-invalid @enderror" value="{{ old('categoryName') }}">
-                @error('categoryName')
-                  <span class="invalid-feedback d-block" role="alert"><strong>{{ $message }}</strong></span>
-                @enderror
-              </div>
-              <div class="form-group">
-                <label for="description">Category Description</label>
-                <textarea type="text" id="description" name="description" aria-describedby="description" placeholder="Enter The category Description" class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
-                @error('description')
-                  <span class="invalid-feedback d-block" role="alert"><strong>{{ $message }}</strong></span>
-                @enderror
-              </div>
+              @include('admin.category._form', ['button' => 'Create'])
 
-              <div class="form-group">
-                <div class="custom-file">
-                  <input type="file" id="image" name="image" class="custom-file-input @error('image') is-invalid @enderror" value="{{ old('image') }}">
-                  <label class="custom-file-label" for="image">Category Image</label>
-                  @error('image')
-                  <span class="invalid-feedback d-block" role="alert"><strong>{{ $message }}</strong></span>
-                  @enderror
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary w-25">Save</button>
-              <a href="{{ route('admin.category.index') }}" class="btn btn-outline-dark">Return Back</a>
             </form>
           </div>
         </div>

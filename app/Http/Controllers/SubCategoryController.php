@@ -9,6 +9,11 @@ use Illuminate\Validation\Rule;
 
 class SubCategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['isAdmin', 'auth']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +21,7 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        $categories = SubCategory::latest()->paginate(8);
+        $categories = SubCategory::latest()->get();
 
 
         return view('admin.subCategory.index', compact('categories'));

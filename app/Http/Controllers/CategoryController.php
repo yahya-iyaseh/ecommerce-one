@@ -15,11 +15,15 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct(){
+        $this->middleware(['isAdmin', 'auth']);
+     }
     public function index()
     {
 
 
-        $categories  = Category::latest()->paginate(5);
+        $categories  = Category::latest()->get();
         return view('admin.category.index', compact('categories'));
     }
 
@@ -30,7 +34,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return view('admin.category.create',  [
+            'category' => new Category
+        ]);
     }
 
     /**
@@ -53,7 +59,7 @@ class CategoryController extends Controller
             'name' => $request->categoryName,
             'description' => $request->description,
             'image' => $imageName,
-            'slug' => Str::slug($request->categoryName),
+            // 'slug' => Str::slug($request->categoryName),
         ]);
         notify()->success('The Category was created successfully');
         return Redirect::route('admin.category.index');
@@ -106,7 +112,7 @@ class CategoryController extends Controller
             'name' => $request->categoryName,
             'description' => $request->description,
             'image' => $imageName,
-            'slug' => Str::slug($request->categoryName),
+            // 'slug' => Str::slug($request->categoryName),
         ]);
         notify()->success('The Category was Updated successfully');
         return Redirect::route('admin.category.index');

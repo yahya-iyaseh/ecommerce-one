@@ -11,21 +11,19 @@
     </ol>
   </div>
 
-  <div class="row">
 
 
-    <div class="col-11 mb-4 mx-auto">
-      <a href="{{ route('admin.subCategory.create') }}" class="btn btn-info mb-2">Create</a>
+       <div class="col-lg-12">
+                 <a href="{{ route('admin.subCategory.create') }}" class="btn btn-info mb-2">Create</a>
 
-      <!-- Simple Tables -->
-      <div class="card">
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">Sub Categories</h6>
-        </div>
-        <div class="table-responsive">
-          <table class="table align-items-center table-flush">
-            <thead class="thead-light">
-              <tr>
+              <div class="card mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
+                </div>
+                <div class="table-responsive p-3">
+                  <table class="table align-items-center table-flush" id="dataTable">
+                    <thead class="thead-light">
+                      <tr>
                 <th>Category Number</th>
                 <th>Category Name</th>
                 <th>Category Parent</th>
@@ -65,15 +63,10 @@
               @endif
 
             </tbody>
-          </table>
-        </div>
-        <div class="card-footer">
-
-          {{ $categories->links() }}
-        </div>
-      </div>
-    </div>
-  </div>
+           </table>
+                </div>
+              </div>
+            </div>
 
 
   <script>

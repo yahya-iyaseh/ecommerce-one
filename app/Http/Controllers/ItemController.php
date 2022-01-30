@@ -9,6 +9,10 @@ use Illuminate\Validation\Rule;
 
 class ItemController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['isAdmin', 'auth']);
+    }
     /**
      * Display a listing of the resource.
      *
