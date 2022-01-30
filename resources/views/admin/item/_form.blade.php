@@ -22,8 +22,13 @@
           </div>
           <div class="form-group">
             <div class="custom-file">
-              <input type="file" id="image" name="image" class="custom-file-input @error('image') is-invalid @enderror" value="{{ old('image', $item->image) }}">
+              <input type="file" id="image" name="image" class="custom-file-input @error('image') is-invalid @enderror" value="{{ old('image', $item->image) }}"
+                onchange="document.getElementById('change-image').src = window.URL.createObjectURL(this.files[0])">
               <label class="custom-file-label" for="image">Item Image</label>
+              <label for="image" class="d-flex justify-center">
+                <img src="{{ $item->image_url }}" width="300" class="mt-3" alt="" id="change-image">
+
+              </label>
               @error('image')
                 <span class="invalid-feedback d-block" role="alert"><strong>{{ $message }}</strong></span>
               @enderror
@@ -61,9 +66,10 @@
             <label for="sub_category">Sub Category</label>
             <select name="sub_category" id="sub_category" class="form-control">
               <option value="">Select</option>
-
             </select>
           </div>
+
+          <input type="hidden" value="{{ old('sub_category', $item->sub_category) }}" id="subCId" class="form-control" />
           <button type="submit" class="btn btn-primary w-25">
             {{ $button }}
           </button>
@@ -72,8 +78,42 @@
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
           <script type="text/javascript">
             $(document).ready(function() {
+              let id = $('select[name="category_id"]').val()
+              if (id) {
+                $.ajax({
+                  url: '/subCategories/' + id,
+                  type: "GET",
+                  dataType: "JSON",
+                  success: function(data) {
+                      let subid = $('#subCId').val()
+
+                    $('select[name="sub_category"]').empty()
+
+                    $('select[name="sub_category"]').append(`<option value="">Select</option>`)
+                    $.each(data, function(key, value) {
+                      if (subid == key) {
+
+                          $('select[name="sub_category"]').append(`<option value="${key}" selected>${value}</option>`)
+                        } else {
+                          $('select[name="sub_category"]').append(`<option value="${key}">${value}</option>`)
+
+                        }
+
+                    })
+                  }
+                })
+              } else {
+                $('select[name="sub_category"]').empty()
+                $('select[name="sub_category"]').append(`<option value="">Select</option>`)
+
+
+              }
+
+            })
+          </script>
+          <script type="text/javascript">
+            $(document).ready(function() {
               $('select[name="category_id"]').on('change', function() {
-                let catId = $(this).val()
                 if (catId) {
                   $.ajax({
                     url: '/subCategories/' + catId,
@@ -81,9 +121,13 @@
                     dataType: "JSON",
                     success: function(data) {
                       $('select[name="sub_category"]').empty()
+
+
                       $('select[name="sub_category"]').append(`<option value="">Select</option>`)
                       $.each(data, function(key, value) {
-                        $('select[name="sub_category"]').append(`<option value="${key}">${value}</option>`)
+
+                          $('select[name="sub_category"]').append(`<option value="${key}">${value}</option>`)
+
 
                       })
                     }

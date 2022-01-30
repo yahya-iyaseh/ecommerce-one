@@ -16,7 +16,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Item::latest()->paginate(8);
+        $items = Item::latest()->get();
+        // dd($items);
         return view('admin.item.index', compact('items'));
     }
 
@@ -116,6 +117,7 @@ class ItemController extends Controller
             'description' => $request->description,
             'additional_info' => $request->additional_info,
             'category_id' => $request->category_id,
+            'sub_category' => $request->sub_category,
         ];
     }
     protected function rules($id = null)

@@ -23,33 +23,49 @@
         <table class="table align-items-center table-flush table-hover" id="dataTableHover">
           <thead class="thead-light">
             <tr>
+              <th>Image</th>
               <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
+              <th>Image</th>
               <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Actions</th>
             </tr>
           </tfoot>
           <tbody>
-            <tr>
-              <td>Tiger Nixon</td>
-              <td>System Architect</td>
-              <td>Edinburgh</td>
-              <td>61</td>
-              <td>2011/04/25</td>
-              <td>$320,800</td>
-            </tr>
+            @foreach ($items as $key => $product)
+              <tr>
+                <td><img src="{{ Storage::url($product->image) }}" alt="{{ $product->image }}" width="120"></td>
+                <td>{{ $product->name }}</td>
+                <td>{!! Str::substr($product->description, 0, 140) !!}...</td>
+                <td>{{ $product->price }}</td>
+                <td>{{ $product->category->name }}</td>
+                <td>
+                  <div class="row mt-2">
+                    <div class="col-md-6"><a href="{{ route('admin.item.edit', $product->id) }}" class="btn btn-success"><i class="fas fa-pen-square"></i></a></div>
+                    <div class="col-md-6">
+                      <form action="{{ route('admin.item.destroy', $product->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this product?')">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger mt-2 mt-md-0"><i class="far fa-trash-alt"></i></button>
+                      </form>
+                    </div>
+                  </div>
+
+                </td>
+
+              </tr>
+            @endforeach
+
 
           </tbody>
         </table>
