@@ -23,7 +23,7 @@
             <form action="{{ route('admin.subCategory.store') }}" method="post">
               @csrf
               <div class="form-group">
-                <label for="name">Category Name</label>
+                <label for="name">Sub Category Name</label>
                 <input type="text" id="name" name="name" aria-describedby="name" placeholder="Enter The category Name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
                 @error('name')
                   <span class="invalid-feedback d-block" role="alert"><strong>{{ $message }}</strong></span>
@@ -32,7 +32,7 @@
               <div class="form-group">
                 <div class="custom-file">
                   <label for="category_id">Category Parent</label>
-                  <select name="category_id" id="category_id">
+                  <select name="category_id" id="category_id" class="form-control">
                       @foreach ($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                       @endforeach
@@ -51,4 +51,5 @@
       </div>
     </div>
   </div>
+ 
 @endsection

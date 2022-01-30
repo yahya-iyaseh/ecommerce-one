@@ -107,4 +107,11 @@ class SubCategoryController extends Controller
             'category_id' => ['required', 'exists:categories,id']
         ];
     }
+
+    public function getSubCategory(Request $request, $id){
+
+        $subCategories = SubCategory::where( 'category_id', $id)->pluck('name', 'id');
+
+        return response()->json($subCategories);
+    }
 }

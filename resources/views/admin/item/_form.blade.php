@@ -37,6 +37,9 @@
               <span class="invalid-feedback d-block" role="alert"><strong>{{ $message }}</strong></span>
             @enderror
           </div>
+
+
+
           <div class="form-group">
             <label for="category_id">Category</label>
             <select name="category_id" id="category_id" class="form-control @error('category_id')
@@ -54,8 +57,44 @@
             @enderror
           </div>
 
+          <div class="form-group">
+            <label for="sub_category">Sub Category</label>
+            <select name="sub_category" id="sub_category" class="form-control">
+              <option value="">Select</option>
 
+            </select>
+          </div>
           <button type="submit" class="btn btn-primary w-25">
             {{ $button }}
           </button>
           <a href="{{ route('admin.item.index') }}" class="btn btn-outline-dark">Return Back</a>
+
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+          <script type="text/javascript">
+            $(document).ready(function() {
+              $('select[name="category_id"]').on('change', function() {
+                let catId = $(this).val()
+                if (catId) {
+                  $.ajax({
+                    url: '/subCategories/' + catId,
+                    type: "GET",
+                    dataType: "JSON",
+                    success: function(data) {
+                      $('select[name="sub_category"]').empty()
+                      $('select[name="sub_category"]').append(`<option value="">Select</option>`)
+                      $.each(data, function(key, value) {
+                        $('select[name="sub_category"]').append(`<option value="${key}">${value}</option>`)
+
+                      })
+                    }
+                  })
+                } else {
+                  $('select[name="sub_category"]').empty()
+                  $('select[name="sub_category"]').append(`<option value="">Select</option>`)
+
+
+                }
+              })
+
+            })
+          </script>

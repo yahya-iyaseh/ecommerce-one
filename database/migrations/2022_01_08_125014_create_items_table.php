@@ -20,11 +20,13 @@ class CreateItemsTable extends Migration
             $table->string('image');
             $table->text('description')->nullable();
             $table->text('additional_info')->nullable();
+
             $table->foreignId('category_id')
             ->nullable()
             ->constrained('categories')
             ->nullOnDelete()
             ->cascadeOnUpdate();
+            $table->bigInteger('sub_category')->unsigned()->nullable();
             $table->timestamps();
         });
     }

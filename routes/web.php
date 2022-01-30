@@ -28,11 +28,11 @@ Route::get('/index/test', function () {
 
 
 Route::resource('category', CategoryController::class, ['as' => 'admin']);
-Route::resource('subCategory', SubCategoryController::class, ['as' => 'admin']);
+Route::resource('/subCategory', SubCategoryController::class, ['as' => 'admin']);
+Route::get('/subCategories/{id}', [SubCategoryController::class, 'getSubCategory'])->name('get.sub-category');
 Route::resource('item', ItemController::class, ['as' => 'admin']);
 Route::get('test', function(){
-    $h1 = "<h1>hello</h1>";
-    return view('fuck', compact('h1'));
+
 });
 Auth::routes();
 
