@@ -20,18 +20,18 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        User::factory(10)->create();
-        Category::factory(12)->create();
-        SubCategory::factory(20)->create();
+        // User::factory(10)->create();
+        // Category::factory(12)->create();
+        // SubCategory::factory(50)->create();
         Item::factory(120)->create();
 
-        User::create([
-            'name' => 'Yahya Admin',
-            'email' => 'yahya@gmail.com',
-            'email_verified_at' => now(),
-            'password' => bcrypt('yahyayahya'), // password
-            'remember_token' => Str::random(10),
-            'is_admin' => 1
-        ]);
+        // User::create([
+        //     'name' => 'Yahya Admin',
+        //     'email' => 'yahya@gmail.com',
+        //     'email_verified_at' => now(),
+        //     'password' => bcrypt('yahyayahya'), // password
+        //     'remember_token' => Str::random(10),
+        //     'is_admin' => 1
+        // ]);
     }
 }

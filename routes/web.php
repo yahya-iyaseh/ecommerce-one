@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\ItemController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\FrontProductListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,13 @@ use App\Http\Controllers\SubCategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Front Product
+Route::get('/{category:slug?}', [FrontProductListController::class, 'index'])->name('product.index');
+Route::get('/product/{id}', [FrontProductListController::class, 'show'])->name('prodcut.show');
+// Products based on category
 
 Route::get('/index', [AdminController::class, 'index']);
 Route::get('/index/test', function () {

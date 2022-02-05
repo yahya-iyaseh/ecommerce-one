@@ -14,7 +14,7 @@ class Category extends Model
     use HasFactory;
     protected $fillable = ['name', 'slug', 'description', 'image'];
     // protected $with = ['subCategory'];
-
+    // protected $with = ['subCategory'];
     protected static function booted()
     {
         static::saving(function ($category) {

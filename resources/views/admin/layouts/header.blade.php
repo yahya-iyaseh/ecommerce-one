@@ -9,7 +9,8 @@
   <meta name="author" content="">
   <link href="{{ asset('adminTemplate/img/logo/logo.png') }}" rel="icon">
   <title>Sharwa</title>
-  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+  <link href="{{ asset('summernote/summernote-lite.css') }}" rel="stylesheet">
+
   <link href="{{ asset('adminTemplate/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('adminTemplate/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('adminTemplate/css/ruang-admin.min.css') }}" rel="stylesheet">

@@ -12,7 +12,7 @@ class Item extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'price', 'image', 'description', 'additional_info', 'category_id', 'sub_category'];
-
+    protected $with = ['category'];
     protected static function booted()
     {
         static::saving(function ($item) {
