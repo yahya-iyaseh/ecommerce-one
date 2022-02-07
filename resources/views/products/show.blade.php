@@ -9,7 +9,7 @@
         <aside class="col-md-3 border-right">
           <div class="gallery-wrap">
             <a href="#">
-              <img src="{{ $product->image_url }}" alt="asdfsdsafsdf" class="img-big-wrap" height="200" style="width: 100%;">
+              <img src="{{ $product->image_url }}" alt="asdfsdsafsdf" class="img-big-wrap" >
             </a>
           </div>
         </aside>
@@ -32,14 +32,14 @@
             </div>
             <hr>
             <div class="row">
-              <a href="#" class="btn btn-lg btn-outline-primary text-uppercase w-25">Add to Cart</a>
+              <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-lg btn-outline-primary text-uppercase w-25 mt-2">Add to Cart</a>
             </div>
           </section>
         </aside>
       </div>
     </div>
     @if ($products->count() > 0)
-      <div class="jumbotron">
+      <div class="jumbotron mt-5">
         <div class="row">
           @foreach ($products as $key => $value)
             <div class="col-md-4">
@@ -51,7 +51,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <a href="{{ route('prodcut.show', $value->id) }}" type="button" class="btn btn-sm btn-outline-success">View</a>
-                      <button type="button" class="btn btn-sm btn-outline-primary">Add to Cart</button>
+                      <a href="{{ route('add.to.cart', $value->id)}}"type="button" class="btn btn-sm btn-outline-primary">Add to Cart</a>
                     </div>
                     <small class="text-muted">{{ $value->created_at->diffForHumans() }}</small>
                   </div>

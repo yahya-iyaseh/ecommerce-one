@@ -21,18 +21,12 @@
 
       <a href="{{ route('product.index') }}" class="btn {{ request('category') ? 'btn-secondary' : 'btn-primary' }} m-1">All</a>
       @foreach (DB::table('categories')->get() as $value)
-        <a href={{ route('product.index', $category->value) }}
+        <a href={{ route('product.index', $value->slug) }}
           class="btn
               @if (request('category'))
-
-               @if (request()->category->slug == $value->slug)
- btn-primary
-               @else
-btn-secondary
+               @if (request()->category->slug == $value->slug) btn-primary @else btn-secondary
                @endif
-
-               @else
-btn-secondary
+               @else btn-secondary
                @endif m-1">
           {{ $value->name }}</a>
       @endforeach
@@ -43,9 +37,10 @@ btn-secondary
         <div class="row">
           @if ($subCategories->count() > 0)
             <div class="col-md-2">
+
               <form action="{{ route('product.index', $category->slug) }}" method="GET">
                 @foreach ($subCategories as $key => $subCategory)
-                  <p><input class="d-inline form-check-input" id="subCategory{{ $key }}" type="checkbox" name="subcategory[]" value="{{ $subCategory->slug }}" @if ($subCategoriesIds != null)  @if (in_array($subCategory->id, $subCategoriesIds)) checked @endif @endif>
+                  <p><input class="d-inline-block form-check-input" id="subCategory{{ $key }}" type="checkbox" name="subcategory[]" value="{{ $subCategory->slug }}" @if ($subCategoriesIds != null)  @if (in_array($subCategory->id, $subCategoriesIds)) checked @endif @endif>
                     <label class="d-inline" for="subCategory{{ $key }}">{{ $subCategory->name }}</label>
                   </p>
                 @endforeach
@@ -65,7 +60,7 @@ btn-secondary
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
                         <a href="{{ route('prodcut.show', $value->id) }}" type="button" class="btn btn-sm btn-outline-success">View</a>
-                        <button type="button" class="btn btn-sm btn-outline-primary">Add to Cart</button>
+                        <a href="{{ route('add.to.cart', $value->id) }}" type="button" class="btn btn-sm btn-outline-primary">Add to Cart</a>
                       </div>
                       <small class="text-muted">{{ $value->created_at->diffForHumans() }}</small>
                     </div>
