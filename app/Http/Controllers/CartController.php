@@ -31,9 +31,9 @@ class CartController extends Controller
 
         if(Session::has('cart'))
         if(Session::get('cart')->itemsQty > 0)
-        $cart = Session::get('cart');
+        $cart = new Cart(Session::get('cart'));
         else
-        $cart = [];
+        $cart = null;
         return view('cart', [
             'cart' => $cart,
         ]);

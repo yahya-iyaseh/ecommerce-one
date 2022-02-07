@@ -23,18 +23,14 @@
 
               <tr>
                 <th scope="row">1</th>
-                <td><img src="{{ asset('images/noImage.png') }}" width="60"></td>
-                <td>Name</td>
-                <td>$3300</td>
+                <td><img src="{{ $value['image'] }}" width="60"></td>
+                <td>{{ $value['name'] }}</td>
+                <td>${{ $value['price'] }}</td>
                 <td>
                   <div class="d-flex justify-content-between align-items-center gap-2">
-                    <input type="text" name="qty" class="form-control" />
-
-                    <button class="btn btn-outline-secondary btn-sm">
-                      <i class="fa fa-rotate-right"></i>
-                    </button>
+                    <input type="text" name="qty" class="form-control" value="{{ $value['qty'] }}" />
+                    <button class="btn btn-outline-secondary btn-sm"><i class="fa fa-rotate-right"> Update</i><span></span></button>
                   </div>
-
                 </td>
                 <td>
                   <button class="btn btn-danger">Remove</button>
@@ -48,6 +44,12 @@
 
         </tbody>
       </table>
+      <hr>
+      <div class="card-footer">
+        <button class="btn btn-warning">Continue Shopping</button>
+        <span style="margin-left: 300px;">Total Price: $3000</span>
+        <button class="btn btn-info float-end">Checkout</button>
+      </div>
     </div>
   </div>
 
