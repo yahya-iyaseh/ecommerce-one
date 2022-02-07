@@ -32,7 +32,8 @@ Route::get('/index/test', function () {
 // Cart
 Route::get('/addToCart/{product}', [CartController::class, 'addToCart'])->name('add.to.cart');
 Route::get('/cart/products', [CartController::class, 'showCart'])->name('cart.show');
-
+Route::post('/cart/{product}', [CartController::class, 'updateCart'])->name('cart.update');
+Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 
 
 Route::resource('category', CategoryController::class, ['as' => 'admin']);

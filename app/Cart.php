@@ -30,14 +30,25 @@ class Cart
             'qty' => 0,
             'image' => $product->image_url,
         ];
-        if(!array_key_exists($product->id, $this->items)){
+        if (!array_key_exists($product->id, $this->items)) {
             $this->items[$product->id] = $item;
-            $this->itemsQty +=1;
+            $this->itemsQty += 1;
             $this->totalPrice += $product->price;
-        }else{
+        } else {
             // $this->itemsQty +=1;
             $this->totalPrice += $product->price;
         }
-        $this->items[$product->id]['qty'] +=1;
+        $this->items[$product->id]['qty'] += 1;
+    }
+    public function updateQty($id, $qty)
+    {
+        $this->totalPrice -= $this->items[$id]['qty'] * $this->items[$id]['price'];
+        $this->items[$id]['qty'] = $qty;
+        $this->totalPrice += $this->items[$id]['qty'] * $this->items[$id]['price'];
+    }
+    public function destroy($id){
+        $this->totalPrice -= $this->items[$id]['qty'] * $this->items[$id]['price'];
+        $this->itemsQty--;
+        unset($this->items[$id]);
     }
 }
